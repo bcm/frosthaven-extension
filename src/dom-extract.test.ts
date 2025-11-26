@@ -1,18 +1,18 @@
-import { describe, it, expect, beforeEach } from 'vitest'
-import { extractScenarios } from './dom-extract'
+import { describe, it, expect, beforeEach } from 'vitest';
+import { extractScenarios } from './dom-extract';
 
 describe('DOM Extraction', () => {
-    beforeEach(() => {
-        document.body.innerHTML = ''
-    })
+  beforeEach(() => {
+    document.body.innerHTML = '';
+  });
 
-    it('extracts unlocked and incomplete scenarios', () => {
-        // Fixture: 
-        // Scenario 1: Unlocked, Incomplete (Should be extracted)
-        // Scenario 2: Locked (Has "×" marker) (Should be ignored)
-        // Scenario 3: Unlocked, Complete (Checked radio) (Should be ignored)
+  it('extracts unlocked and incomplete scenarios', () => {
+    // Fixture:
+    // Scenario 1: Unlocked, Incomplete (Should be extracted)
+    // Scenario 2: Locked (Has "×" marker) (Should be ignored)
+    // Scenario 3: Unlocked, Complete (Checked radio) (Should be ignored)
 
-        document.body.innerHTML = `
+    document.body.innerHTML = `
       <div class="scenario-list">
         <!-- Scenario 1 -->
         <div id="scenario-1" class="scenario">
@@ -35,19 +35,19 @@ describe('DOM Extraction', () => {
           <input type="radio" name="s3" value="complete" checked>
         </div>
       </div>
-    `
+    `;
 
-        const scenarios = extractScenarios()
+    const scenarios = extractScenarios();
 
-        expect(scenarios).toHaveLength(1)
-        expect(scenarios[0].id).toBe(1)
-        expect(scenarios[0].unlocked).toBe(true)
-        expect(scenarios[0].complete).toBe(false)
-    })
+    expect(scenarios).toHaveLength(1);
+    expect(scenarios[0].id).toBe(1);
+    expect(scenarios[0].unlocked).toBe(true);
+    expect(scenarios[0].complete).toBe(false);
+  });
 
-    it('returns empty list if no scenarios found', () => {
-        document.body.innerHTML = '<div class="empty"></div>'
-        const scenarios = extractScenarios()
-        expect(scenarios).toEqual([])
-    })
-})
+  it('returns empty list if no scenarios found', () => {
+    document.body.innerHTML = '<div class="empty"></div>';
+    const scenarios = extractScenarios();
+    expect(scenarios).toEqual([]);
+  });
+});
