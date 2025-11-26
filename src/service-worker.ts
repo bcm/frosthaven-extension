@@ -1,6 +1,6 @@
 import { supabase } from './supabase-client';
 
-console.log('Frosthaven Extension Service Worker Loaded');
+console.log('Frosthaven Scenario Backlog Service Worker Loaded');
 
 chrome.runtime.onMessage.addListener((message: { action?: string }) => {
   if (message.action === 'signIn') {

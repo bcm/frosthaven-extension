@@ -3,7 +3,7 @@ import { createOverlay } from './overlay';
 import { supabase, supabaseLoad, supabaseSave } from './supabase-client';
 import './style.css';
 
-console.log('Frosthaven Extension Content Script Loaded');
+console.log('Frosthaven Scenario Backlog Content Script Loaded');
 
 async function init() {
   // 1. Extract scenarios from DOM

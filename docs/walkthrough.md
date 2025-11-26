@@ -1,4 +1,4 @@
-# Frosthaven Extension Walkthrough
+# Frosthaven Scenario Backlog Walkthrough
 
 ## Overview
 This extension adds a scenario backlog overlay to the Frosthaven Storyline Tracker. It allows you to prioritize unlocked scenarios and syncs the order across devices using Supabase.
